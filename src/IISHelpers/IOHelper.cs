@@ -34,15 +34,46 @@ namespace IISHelpers
         /// <exception cref="System.IO.FileNotFoundException">Thrown when the requested file does not exist</exception>
         internal static string ReadTextFromFileWithCaching(string filePath)
         {
-            string cachedContent = HttpRuntime.Cache[filePath] as string;
+            string cachedContent = HttpRuntime.Cache[filePath + "_content"] as string;
             if (string.IsNullOrEmpty(cachedContent))
             {
                 string content = ReadTextFromFile(filePath);    //Read file contents from disk
-                HttpRuntime.Cache.Insert(filePath, content, new CacheDependency(filePath)); //Add result to cache with dependency on the file
+                HttpRuntime.Cache.Insert(filePath + "_content", content, new CacheDependency(filePath)); //Add result to cache with dependency on the file
                 return content; //Return content
             }
             else
                 return cachedContent;   //Return directly from cache
+        }
+
+        /// <summary>
+        /// Removes the file extension from a file path (can be physical or a URL)
+        /// </summary>
+        /// <param name="path">string with the path</param>
+        /// <returns>The path without anything from the last point onward unless there's a slash after it</returns>
+        public static string RemoveFileExtension(string path)
+        {
+            int dotPos = path.LastIndexOf('.');
+            //If there's no final point
+            if (dotPos == -1)
+                return path;    //Return unmodified path
+            //If there's a last point, check that it's not before a folder separator
+            int slashPos = path.LastIndexOf('\\');  //Position of folder separator (physical path)
+            if (slashPos == -1) slashPos = path.LastIndexOf('/');   //Try with virtual url path or phys path in UNIX systems
+            if (slashPos > dotPos) //If the slash is afetr the dot, then is not a file extension but a dot in a folder name
+                return path;    //return full path
+            //If we reach this point then, remove everyting after the point position (included)
+            return path.Substring(0, dotPos);
+        }
+
+        /// <summary>
+        /// Returns the whole path without the file at the end
+        /// </summary>
+        /// <param name="filePath">The path to a file</param>
+        /// <returns></returns>
+        public static string GetContainingFolderPath(string filePath)
+        {
+            FileInfo fi = new FileInfo(filePath);
+            return fi.DirectoryName;
         }
     }
 }

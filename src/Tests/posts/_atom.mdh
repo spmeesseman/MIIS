@@ -1,0 +1,37 @@
+﻿---
+Title: Sample ATOM feed created with MIIS
+TemplateName: raw
+mime: application/atom+xml
+# Change it to true or comment it to have a text excerpt in the content instead of the full HTML contents of each file
+#UseFullHtml: true
+posts: !!FilesFromFolder ./ true
+#caching: true
+---
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xmlns:media="http://search.yahoo.com/mrss/" xml:lang="en-US">
+  <id>{{baseurl}}{{url}}</id>
+  <link type="text/html" rel="alternate" href="{{baseurl}}{{url}}"/>
+  <link type="application/atom+xml" rel="self" href="{{baseurl}}{{url}}"/>
+  <title>{{title | escape }}</title>
+  <updated>{{now | date: "yyyy-MM-ddTHH:mm:sszzz"}}</updated>
+{%- comment -%}
+The next line is not needed since the posts are returned in descending order by date. 
+It's just an example of how to control the sort order
+{%- endcomment -%}
+{%- assign sortedposts = posts | sort: "date" | reverse -%}
+{%- for post in sortedposts limit:10 -%}
+  <entry>
+    <id>{{baseurl}}{{post.url}}</id>
+    <updated>{{post.Date | date: "yyyy-MM-ddTHH:mm:sszzz"}}</updated>
+    <link rel="alternate" type="text/html" href="{{baseurl}}{{post.URL}}"/>
+    <title>{{post.Title | escape}}</title>
+    <content type="html">{% if UseFullHtml == true %}{{post.HTML | escape}}{% else %}{{post.Excerpt}}{% endif %}</content>
+    <author>
+      <name>{{post.Author}}</name>
+    </author>
+{%- if post.Image -%}
+    <media:thumbnail url="{{baseurl}}{{post.Dir}}{{post.Image}}"/>
+{%- endif -%}
+  </entry>
+{%- endfor -%}
+</feed>

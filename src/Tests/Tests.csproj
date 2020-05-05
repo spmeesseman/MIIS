@@ -1,0 +1,259 @@
+﻿<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{211FB561-9B94-4EAE-8E3A-4F2F92ADAEA5}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Tests</RootNamespace>
+    <AssemblyName>Tests</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="CSS\GitHub.css" />
+    <Content Include="CSS\markdown5.css" />
+    <Content Include="CSS\screen.css" />
+    <Content Include="images\logo.png" />
+    <Content Include="posts\media\ConsolidateTab.png" />
+    <Content Include="posts\media\InstallPreviewDialog.png" />
+    <Content Include="posts\media\LongPathPolicy.png" />
+    <Content Include="posts\media\ManagePackagesSolutionUICommand.png" />
+    <Content Include="posts\media\ManagePackagesUICommand.png" />
+    <Content Include="posts\media\Options.png" />
+    <Content Include="posts\media\PackageManagerConsoleControls.png" />
+    <Content Include="posts\media\PackageManagerConsoleControls1.png" />
+    <Content Include="posts\media\PackageManagerConsoleControls2.png" />
+    <Content Include="posts\media\PackageManagerConsoleControls3.png" />
+    <Content Include="posts\media\PackageManagerConsoleInstall.png" />
+    <Content Include="posts\media\PackageManagerUIAutoReferenced.png" />
+    <Content Include="posts\media\PackageManagerUIOptions.png" />
+    <Content Include="posts\media\PackageSourceDropDown.png" />
+    <Content Include="posts\media\PackageSourceSettings.png" />
+    <Content Include="posts\media\References.png" />
+    <Content Include="posts\media\Register-TabExpansion-Example.png" />
+    <Content Include="posts\media\rss.png" />
+    <Content Include="posts\media\Search.png" />
+    <Content Include="posts\media\SolutionPackagesUI.png" />
+    <Content Include="posts\media\UninstallPackage.png" />
+    <Content Include="posts\media\UpdatePackages.png" />
+    <Content Include="Templates\common.css" />
+    <Content Include="Templates\common.js" />
+    <Content Include="Templates\readthedocs\components\testcomponent.html" />
+    <Content Include="Templates\readthedocs\css\highlight.css" />
+    <Content Include="Templates\readthedocs\css\theme.css" />
+    <Content Include="Templates\readthedocs\css\theme_extra.css" />
+    <Content Include="Templates\readthedocs\fonts\fontawesome-webfont.svg" />
+    <Content Include="Templates\readthedocs\includes\beginning-fragment-test.html" />
+    <Content Include="Templates\readthedocs\includes\beginning.html" />
+    <Content Include="Templates\readthedocs\includes\end.html" />
+    <Content Include="Templates\readthedocs\includes\forkme.html" />
+    <Content Include="Templates\readthedocs\includes\relatedposts.html" />
+    <Content Include="Templates\readthedocs\inherited.html" />
+    <Content Include="Templates\readthedocs\js\highlight.pack.js" />
+    <Content Include="Templates\readthedocs\js\modernizr-2.8.3.min.js" />
+    <Content Include="Templates\readthedocs\js\theme.js" />
+    <Content Include="Templates\readthedocs\main-with-fragment.html" />
+    <Content Include="Templates\readthedocs\main.html" />
+    <Content Include="Templates\readthedocs\post.html" />
+    <Content Include="Templates\_common\GA.html" />
+    <Content Include="Templates\_common_fonts\fontawesome-webfont.svg" />
+    <Content Include="Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Templates\_common_fonts\fontawesome-webfont.eot" />
+    <Content Include="Templates\_common_fonts\fontawesome-webfont.ttf" />
+    <Content Include="Templates\_common_fonts\fontawesome-webfont.woff" />
+    <Content Include="Templates\readthedocs\fonts\fontawesome-webfont.eot" />
+    <Content Include="Templates\readthedocs\fonts\fontawesome-webfont.ttf" />
+    <Content Include="Templates\readthedocs\fonts\fontawesome-webfont.woff" />
+    <Content Include="Templates\readthedocs\license\highlight.js\LICENSE" />
+    <Content Include="raw.mdh" />
+    <Content Include="index.md" />
+    <Content Include="toc.md" />
+    <Content Include="liquid.mdh" />
+    <Content Include="insertfiles\fpf.md" />
+    <Content Include="insertfiles\fpf_circular_reference.md" />
+    <Content Include="insertfiles\fpf_circular_reference-01.md" />
+    <Content Include="insertfiles\fpf_circular_reference-02.md" />
+    <Content Include="customtags.md" />
+    <Content Include="customfilters.md" />
+    <Content Include="customFMSrc.md" />
+    <Content Include="posts\cli-ref-add.md" />
+    <Content Include="posts\cli-ref-config.md" />
+    <Content Include="posts\cli-ref-delete.md" />
+    <Content Include="posts\cli-ref-environment-variables.md" />
+    <Content Include="posts\cli-ref-help.md" />
+    <Content Include="posts\cli-ref-init.md" />
+    <Content Include="posts\cli-ref-install.md" />
+    <Content Include="posts\cli-ref-list.md" />
+    <Content Include="posts\cli-ref-locals.md" />
+    <Content Include="posts\cli-ref-long-path.md" />
+    <Content Include="posts\cli-ref-mirror.md" />
+    <Content Include="posts\cli-ref-pack.md" />
+    <Content Include="posts\cli-ref-push.md" />
+    <Content Include="posts\cli-ref-restore.md" />
+    <Content Include="posts\cli-ref-setapikey.md" />
+    <Content Include="posts\cli-ref-sign.md" />
+    <Content Include="posts\cli-ref-sources.md" />
+    <Content Include="posts\cli-ref-spec.md" />
+    <Content Include="posts\cli-ref-trusted-signers.md" />
+    <Content Include="posts\cli-ref-update.md" />
+    <Content Include="posts\cli-ref-verify.md" />
+    <Content Include="posts\dotnet-Commands.md" />
+    <Content Include="posts\index.md" />
+    <Content Include="posts\nuget-exe-CLI-Reference.md" />
+    <Content Include="posts\Package-Manager-Console.md" />
+    <Content Include="posts\Package-Manager-UI.md" />
+    <Content Include="posts\PowerShell-Reference.md" />
+    <Content Include="posts\ps-ref-add-bindingredirect.md" />
+    <Content Include="posts\ps-ref-find-package.md" />
+    <Content Include="posts\ps-ref-get-package.md" />
+    <Content Include="posts\ps-ref-get-project.md" />
+    <Content Include="posts\ps-ref-install-package.md" />
+    <Content Include="posts\ps-ref-open-packagepage.md" />
+    <Content Include="posts\ps-ref-register-tabexpansion.md" />
+    <Content Include="posts\ps-ref-sync-package.md" />
+    <Content Include="posts\ps-ref-uninstall-package.md" />
+    <Content Include="posts\ps-ref-update-package.md" />
+    <Content Include="posts\_pagination.md" />
+    <Content Include="posts\Web.config" />
+    <Content Include="posts\_atom.mdh" />
+    <Content Include="insertfiles\fragments.md" />
+    <Content Include="insertfiles\fragments-toc.md" />
+    <Content Include="frontmatter-tests\fm-newline-fmonly.md" />
+    <Content Include="frontmatter-tests\fm-newline-mac.md" />
+    <Content Include="frontmatter-tests\fm-newline-unix.md" />
+    <Content Include="frontmatter-tests\fm-newline-windows.md" />
+    <Content Include="insertfiles\injected01.mdh" />
+    <Content Include="insertfiles\mixed_md_html.md" />
+    <Content Include="insertfiles\component01.md" />
+    <Content Include="insertfiles\inheritance.md" />
+    <Content Include="if-null-filter.md" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <Content Include="well-known-fields.md" />
+    <Content Include="_data\authors\karann-msft.md" />
+    <Content Include="_data\authors\dtivel.md" />
+    <Content Include="_data\authors\patbel.md" />
+    <Content Include="_data\authors\zhili1208.md" />
+    <Content Include="_data\authors\jmalarcon.md" />
+    <Content Include="_data\langs\en.yml" />
+    <Content Include="_data\langs\es.yml" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Extensions\ParamSources\FilesEnumeratorParam\MIISFilesEnumeratorFMS.csproj">
+      <Project>{a02771b1-1155-4505-b6ca-662439a72aa0}</Project>
+      <Name>MIISFilesEnumeratorFMS</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MIISHandler\MIISHandler.csproj">
+      <Project>{80934ba3-4d14-4dd1-ab2c-6466fce8e791}</Project>
+      <Name>MIISHandler</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Extensions\Filters\MIISLiquidFilters\MIISLiquidFilters.csproj">
+      <Project>{4b5f6e61-05f6-4e9f-83ac-d7b161213024}</Project>
+      <Name>MIISWhereFilter</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SampleExtensions\MIISRandomParamSample\MIISRandomParamSample.csproj">
+      <Project>{ddff0cae-3c6a-46b9-a3f5-da9b60361acb}</Project>
+      <Name>MIISRandomParamSample</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SampleExtensions\MIISToTitleCaseFilter\MIISTitleCaseSampleFilter.csproj">
+      <Project>{a7db5b34-882a-422f-af62-42158a1e5049}</Project>
+      <Name>MIISTitleCaseSampleFilter</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Extensions\Tags\MIISYouTubeTag\MIISYouTubeTag.csproj">
+      <Project>{da8c87f0-67ac-4e0f-a999-9b1089aac1e8}</Project>
+      <Name>MIISYouTubeTag</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>53855</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:53855/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
